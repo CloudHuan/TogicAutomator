@@ -1,0 +1,25 @@
+/home/cloudhuan/workspace/TogicAutomator/bin/classes.dex : \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/launcherClick/AMetroParse.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/launcherClick/MetroClick.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/launcherClick/model/CellInfo.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONString.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONML.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/CookieList.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONException.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/XML.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/XMLTokener.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONObject$Null.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/HTTP.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONStringer.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/Property.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/Cookie.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONObject.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONArray.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONObject$1.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/CDL.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONWriter.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/HTTPTokener.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONTokener.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/Utils/Println.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/Utils/IOUtils.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/main/TestDemo.class \
