@@ -14,15 +14,13 @@ public class MetroClick {
 
 	public MetroClick(UiDevice uiDevice) {
 		this.uiDevice = uiDevice;
-		new Println("检查check");
-		checkCurrentActivity(uiDevice);
-		new Println("构造完成");
+		//startTogic(uiDevice);
 	}
 
 	private void checkCurrentActivity(UiDevice uiDevice){
 		new Println("检查前台程序");
 		if(!uiDevice.getCurrentPackageName().contains("com.togic.livevideo")){
-			new Println("当前不在泰捷视频，尝试启动泰捷视频中...");
+			new Println("泰捷视频未启动，尝试启动泰捷视频中...");
 		}else{
 			return;
 		}
@@ -158,8 +156,13 @@ public class MetroClick {
 		}
 	}
 
+	public void startTogic(UiDevice uiDevice){
+		checkCurrentActivity(uiDevice);
+	}
+	
 	public void closeAllActivity() {
 		// TODO Auto-generated method stub
+		new Println("关闭所有任务中");
 		try {
 			Runtime.getRuntime().exec("am force-stop com.togic.livevideo");
 		} catch (IOException e) {
