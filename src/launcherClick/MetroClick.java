@@ -14,20 +14,21 @@ public class MetroClick {
 
 	public MetroClick(UiDevice uiDevice) {
 		this.uiDevice = uiDevice;
-		//startTogic(uiDevice);
+		// startTogic(uiDevice);
 	}
 
 	private void checkCurrentActivity(UiDevice uiDevice){
 		new Println("检查前台程序");
-		if(!uiDevice.getCurrentPackageName().contains("com.togic.livevideo")){
+		if(!uiDevice.getCurrentPackageName().contains("com.togic.livevideo")) {
 			new Println("泰捷视频未启动，尝试启动泰捷视频中...");
 		}else{
+			new Println("泰捷视频已经启动");
 			return;
 		}
 		try {
-			Runtime.getRuntime().exec("am force-stop com.togic.livevideo");
+			
 			Runtime.getRuntime().exec("am start -n com.togic.livevideo/.MainActivity");
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,12 +38,12 @@ public class MetroClick {
 		}
 		checkCurrentActivity(uiDevice);
 	}
-	
+
 	public void togicClick(String label, String tab) {
-		initPosition();
+		initPosition(tab);
 		List<CellInfo> list = AMetroParse
 				.startParse("http://cdn.aiseejapp.atianqi.com//v1/layouts/5654508413eecb802dce1f5a?resolution=1080");
-		if(list == null){
+		if (list == null) {
 			new Println("list is null!!!");
 			return;
 		}
@@ -54,11 +55,13 @@ public class MetroClick {
 		} else if (tab.equals("会员")) {
 			_offset = togicOffset("影视") + togicOffset("热门");
 		} else if (tab.equals("设置")) {
-			_offset = togicOffset("影视") + togicOffset("热门") + togicOffset("会员") - 1;
+			_offset = togicOffset("影视") + togicOffset("热门") + togicOffset("会员")
+					- 1;
 		}
-		new Println("begin to move focus to "+label);
+		new Println("begin to move focus to " + label);
 		for (CellInfo cellInfo : list) {
-			if (cellInfo.getLabel().contains(label) && cellInfo.getTab().contains(tab)) {
+			if (cellInfo.getLabel().contains(label)
+					&& cellInfo.getTab().contains(tab)) {
 				int x = cellInfo.getX();
 				int y = cellInfo.getY();
 				new Println("x:" + x + "  " + "y:" + y + "  " + "偏移量" + _offset);
@@ -76,6 +79,24 @@ public class MetroClick {
 			}
 		}
 		keyEnter();
+		CheckInView();
+	}
+
+	private void CheckInView() {
+		// TODO Auto-generated method stub
+		if(	uiDevice.getCurrentPackageName().contains("com.togic.livevideo")){
+			return;
+		}else{
+			try {
+				throw new ClassNotFoundException("本次点击出问题了，请检查log");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally{
+				System.exit(-1);
+			}
+		}
+
 	}
 
 	public void keyEnter() {
@@ -88,7 +109,7 @@ public class MetroClick {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void keyRight() {
 		try {
 			// Runtime.getRuntime().exec("adb shell input keyevent 22");
@@ -124,30 +145,62 @@ public class MetroClick {
 		return lineLenth;
 	}
 
-	public void initPosition() {
+	public void initPosition(String tab) {
 		new Println("init the position");
-		for (int i = 0; i < 20; i++) {
+		if(tab.contains("影视")){
+			for (int i = 0; i < 10; i++) {
+				try {
+					// Runtime.getRuntime().exec("adb shell input keyevent 21");
+					uiDevice.pressDPadLeft();
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			for (int i = 0; i < 10; i++) {
+				try {
+					// Runtime.getRuntime().exec("adb shell input keyevent 19");
+					uiDevice.pressDPadUp();
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			try {
+				Thread.sleep(1000);
+				// Runtime.getRuntime().exec("adb shell input keyevent 20");
+				uiDevice.pressDPadDown();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return;
+		}
+		
+		for (int i = 0; i < 10; i++) {
 			try {
 				// Runtime.getRuntime().exec("adb shell input keyevent 19");
 				uiDevice.pressDPadUp();
-				Thread.sleep(200);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 10; i++) {
 			try {
 				// Runtime.getRuntime().exec("adb shell input keyevent 21");
 				uiDevice.pressDPadLeft();
-				Thread.sleep(200);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		try {
-			Thread.sleep(200);
+			Thread.sleep(1000);
 			// Runtime.getRuntime().exec("adb shell input keyevent 20");
 			uiDevice.pressDPadDown();
 		} catch (InterruptedException e) {
@@ -156,10 +209,10 @@ public class MetroClick {
 		}
 	}
 
-	public void startTogic(UiDevice uiDevice){
+	public void startTogic(UiDevice uiDevice) {
 		checkCurrentActivity(uiDevice);
 	}
-	
+
 	public void closeAllActivity() {
 		// TODO Auto-generated method stub
 		new Println("关闭所有任务中");
@@ -170,5 +223,5 @@ public class MetroClick {
 			e.printStackTrace();
 		}
 	}
-
 }
+

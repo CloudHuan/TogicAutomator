@@ -1,12 +1,17 @@
 package main;
 
 import java.io.IOException;
+import java.util.List;
+
+import Utils.Println;
 
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 import junit.framework.TestCase;
+import launcherClick.AMetroParse;
 import launcherClick.MetroClick;
+import launcherClick.model.CellInfo;
 
 public class TestDemo extends UiAutomatorTestCase{
 	
@@ -16,7 +21,7 @@ public class TestDemo extends UiAutomatorTestCase{
 	@Override
 	protected void setUp() throws Exception {
 		uiDevice = getUiDevice();
-		//启动泰捷视频
+		//启动泰捷视频,没有启动就启动
 		metroClick = new MetroClick(uiDevice);
 		metroClick.startTogic(uiDevice);
 	}
@@ -27,7 +32,7 @@ public class TestDemo extends UiAutomatorTestCase{
 		metroClick.closeAllActivity();
 	}
 	
-	public void testClickMetro(){
+/*	public void testClickMetro(){
 		try {
 		//点击观看历史，然后返回
 		metroClick.togicClick("观看历史", "影视");
@@ -38,14 +43,40 @@ public class TestDemo extends UiAutomatorTestCase{
 		Thread.sleep(3000);
 		uiDevice.pressBack();
 		
-		metroClick.togicClick("排行榜", "热门");
+		metroClick.togicClick("轮播", "影视");
 		Thread.sleep(3000);
 		uiDevice.pressBack();
-		
-		Thread.sleep(3000);
+		uiDevice.pressBack();
+		uiDevice.pressBack();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+	}*/
+	
+	public void testClickAllMetro(){
+		List<CellInfo> list = AMetroParse
+				.startParse("http://cdn.aiseejapp.atianqi.com//v1/layouts/5654508413eecb802dce1f5a?resolution=1080");
+		for(int i=0;i<list.size();i++){
+			try {
+				Thread.sleep(200);			
+				if(list.get(i).getLabel().contains("轮播") || list.get(i).getLabel().contains("随便看看")){
+					metroClick.togicClick(list.get(i).getLabel(), list.get(i).getTab());
+					Thread.sleep(200);
+					uiDevice.pressBack();
+					uiDevice.pressBack();
+					uiDevice.pressBack();
+					uiDevice.pressBack();
+					continue;
+				}
+				metroClick.togicClick(list.get(i).getLabel(), list.get(i).getTab());
+				Thread.sleep(1000);
+				uiDevice.pressBack();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		metroClick.closeAllActivity();
 	}
 }

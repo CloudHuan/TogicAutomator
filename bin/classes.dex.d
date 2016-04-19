@@ -21,5 +21,8 @@
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/HTTPTokener.class \
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/org/json/JSONTokener.class \
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/Utils/Println.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/Utils/ImageCompare.class \
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/Utils/IOUtils.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/main/AutoPlayer.class \
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/main/TestDemo.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/main/MyTestSuit.class \
