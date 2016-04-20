@@ -83,7 +83,7 @@ public class MetroClick {
 		CheckInView();
 	}
 
-	private void CheckInView() {
+	private void CheckInView()  {
 		// TODO Auto-generated method stub
 		if(	uiDevice.getCurrentPackageName().contains("com.togic.livevideo")){
 			return;

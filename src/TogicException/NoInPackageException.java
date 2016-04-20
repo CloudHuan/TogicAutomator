@@ -1,9 +1,10 @@
 package TogicException;
 
+import Utils.Println;
+
 public class NoInPackageException extends Exception {
 
 	public NoInPackageException(String msg){
-		super(msg);
-		System.exit(-1);
+		new Println(msg);
 	}
 }
