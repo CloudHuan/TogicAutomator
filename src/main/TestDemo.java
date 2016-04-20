@@ -1,9 +1,14 @@
 package main;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import Utils.ImageCompare;
 import Utils.Println;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
@@ -18,7 +23,7 @@ public class TestDemo extends UiAutomatorTestCase{
 	UiDevice uiDevice;
 	MetroClick metroClick;
 	
-	@Override
+/*	@Override
 	protected void setUp() throws Exception {
 		uiDevice = getUiDevice();
 		//启动泰捷视频,没有启动就启动
@@ -30,7 +35,7 @@ public class TestDemo extends UiAutomatorTestCase{
 	protected void tearDown() throws Exception {
 		// 关闭所有任务
 		metroClick.closeAllActivity();
-	}
+	}*/
 	
 /*	public void testClickMetro(){
 		try {
@@ -54,7 +59,8 @@ public class TestDemo extends UiAutomatorTestCase{
 		} 
 	}*/
 	
-	public void testClickAllMetro(){
+	//点击all磁铁
+/*	public void testClickAllMetro(){
 		List<CellInfo> list = AMetroParse
 				.startParse("http://cdn.aiseejapp.atianqi.com//v1/layouts/5654508413eecb802dce1f5a?resolution=1080");
 		for(int i=0;i<list.size();i++){
@@ -78,5 +84,12 @@ public class TestDemo extends UiAutomatorTestCase{
 			}
 		}
 		metroClick.closeAllActivity();
+	}*/
+	
+	public void testCompare(){
+		Bitmap bitmap0 = BitmapFactory.decodeFile("/sdcard/pic/search00.png"); 
+		Bitmap bitmap1 = BitmapFactory.decodeFile("/sdcard/pic/search01.png"); 
+		Bitmap bitmap2 = BitmapFactory.decodeFile("/sdcard/pic/search02.png"); 
+		ImageCompare.ImageCompare(bitmap0, bitmap2);
 	}
 }
