@@ -86,10 +86,12 @@ public class TestDemo extends UiAutomatorTestCase{
 		metroClick.closeAllActivity();
 	}*/
 	
-	public void testCompare(){
+	public void testCompareBitmap(){
 		Bitmap bitmap0 = BitmapFactory.decodeFile("/sdcard/pic/search00.png"); 
 		Bitmap bitmap1 = BitmapFactory.decodeFile("/sdcard/pic/search01.png"); 
 		Bitmap bitmap2 = BitmapFactory.decodeFile("/sdcard/pic/search02.png"); 
-		ImageCompare.ImageCompare(bitmap0, bitmap2);
+		//ImageCompare.AssertBitmapEqual(bitmap0, bitmap2);
+		//ImageCompare.ImageCompare(bitmap0, bitmap2);
+		ImageCompare.ImageCompareChild(bitmap0, bitmap2, 0, 450, 400, 270);
 	}
 }
