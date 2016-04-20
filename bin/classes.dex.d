@@ -26,3 +26,4 @@
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/main/AutoPlayer.class \
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/main/TestDemo.class \
 /home/cloudhuan/workspace/TogicAutomator/bin/classes/main/MyTestSuit.class \
+/home/cloudhuan/workspace/TogicAutomator/bin/classes/TogicException/NoInPackageException.class \

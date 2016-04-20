@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.android.uiautomator.core.UiDevice;
 
+import TogicException.NoInPackageException;
 import Utils.Println;
 import launcherClick.model.CellInfo;
 
@@ -88,15 +89,12 @@ public class MetroClick {
 			return;
 		}else{
 			try {
-				throw new ClassNotFoundException("本次点击出问题了，请检查log");
-			} catch (ClassNotFoundException e) {
+				throw new NoInPackageException("程序发生异常退出，请检查最后一次操作");
+			} catch (NoInPackageException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally{
-				System.exit(-1);
 			}
 		}
-
 	}
 
 	public void keyEnter() {
@@ -223,5 +221,5 @@ public class MetroClick {
 			e.printStackTrace();
 		}
 	}
-}
+}	
 
